@@ -4,13 +4,16 @@ on:
     branches: 
       - main
 jobs:
-  build:
-    environment: 'prod'
+  plan: 
     runs-on: ubuntu-latest
     steps:
       - name: Terraform plan
         run: | 
           echo "terraform plan"
+  apply:
+    environment: 'prod'
+    runs-on: ubuntu-latest
+    steps:
       - name: Terraform apply
         run: |
           echo "terraform apply"
