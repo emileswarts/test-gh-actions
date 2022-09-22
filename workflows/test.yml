@@ -1,0 +1,22 @@
+name: AWS NOC CICD Github Action
+on:
+   push:
+    branches: 
+      - main
+jobs:
+  manual_approval: 
+    runs-on: ubuntu-latest
+    steps:
+      - name: Manual approval
+        run: | 
+          echo "Manually approve?"
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Terraform plan
+        run: | 
+          echo "terraform plan"
+      - name: Terraform apply
+        needs: manual_approval
+        run: |
+          echo "terraform apply"
