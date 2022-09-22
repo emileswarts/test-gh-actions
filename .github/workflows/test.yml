@@ -11,12 +11,12 @@ jobs:
         run: | 
           echo "Manually approve?"
   build:
+    needs: manual_approval
     runs-on: ubuntu-latest
     steps:
       - name: Terraform plan
         run: | 
           echo "terraform plan"
       - name: Terraform apply
-        needs: manual_approval
         run: |
           echo "terraform apply"
